@@ -1,21 +1,9 @@
 import React from 'react';
-import { Grid, Box, Paper, Typography, Button } from '@material-ui/core';
-
-import CountButton from './CountButton';
-//import Image from '../../public/pexels-fwstudio-131634.jpg';
+import { Grid, Box, Typography, Button } from '@material-ui/core';
 import { getCount, incrementCount } from '../apis/countApi';
 
 const Content = () => {
 	const [ count, setCount ] = React.useState(0);
-	//const [ buttonClicked, setButtonClicked ] = React.useState(false);
-
-	// React.useEffect(() => {
-	// 	async function fetchCount() {
-	// 		const count = await getCount();
-	// 		setCount(count);
-	// 	}
-	// 	fetchCount();
-	// }, [buttonClicked]);
 
 	React.useEffect(() => {
 		async function fetchCount() {
