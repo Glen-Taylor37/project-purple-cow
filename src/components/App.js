@@ -1,11 +1,13 @@
 import React from 'react';
 import { createMuiTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
-import { Box } from '@material-ui/core';
+import { Box, Paper } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import Header from './Header';
 import Content from './Content';
 import Footer from './Footer';
+
+//import Image from 'pexels-fwstudio-131634.jpg';
 
 const mainTheme = createMuiTheme({
 	palette : {
@@ -27,13 +29,16 @@ const mainTheme = createMuiTheme({
 mainTheme.typography.h4 = {
 	fontSize                           : '1.2rem',
 	'@media (min-width:600px)'         : {
-		fontSize : '1.5rem'
+		fontSize : '2rem'
 	},
 	[mainTheme.breakpoints.down('xs')]: {
-		fontSize : '1rem'
+		fontSize : '1.5rem'
 	},
 	[mainTheme.breakpoints.up('md')]: {
-		fontSize : '2.4rem'
+		fontSize : '3rem'
+	},
+	[mainTheme.breakpoints.up('xl')]: {
+		fontSize : '4rem'
 	}
 };
 
@@ -46,26 +51,33 @@ mainTheme.typography.h5 = {
 		fontSize : '.8rem'
 	},
 	[mainTheme.breakpoints.up('md')]: {
-		fontSize : '2rem'
+		fontSize : '2.5rem'
+	},
+	[mainTheme.breakpoints.up('xl')]: {
+		fontSize : '3.5rem'
 	}
 };
 
 const useStyles = makeStyles(() => ({
-	body : {
+	body           : {
+		width           : '100%',
+		height          : '100%',
+		backgroundImage : `url('pexels-fwstudio-131634.jpg')`
+	},
+	root           : {
 		width  : '100%',
 		height : '100%'
 	},
-	root : {
-		width  : '100%',
-		height : '100%'
+	paperContainer : {
+		backgroundImage : `url(${<img src={'pexels-fwstudio-131634.jpg'} />})`
 	}
 }));
 
 const App = () => {
 	const classes = useStyles();
 	return (
-		<CssBaseline style={{ height: '90vh' }}>
-			<ThemeProvider theme={mainTheme}>
+		<ThemeProvider theme={mainTheme}>
+			<CssBaseline>
 				<Box
 					height="100vh"
 					display="flex"
@@ -76,8 +88,8 @@ const App = () => {
 					<Content />
 					<Footer />
 				</Box>
-			</ThemeProvider>
-		</CssBaseline>
+			</CssBaseline>
+		</ThemeProvider>
 	);
 };
 

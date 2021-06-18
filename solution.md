@@ -12,4 +12,5 @@ Default port: 3000
 .. more to come
 
 ## To do
-.. more to come
+- Fix spacing between button cards
+- Make button card fully modular including ability to pass down cli
