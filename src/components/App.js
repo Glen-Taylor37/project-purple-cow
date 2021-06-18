@@ -1,13 +1,11 @@
 import React from 'react';
 import { createMuiTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
-import { Box, Paper } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import Header from './Header';
 import Content from './Content';
 import Footer from './Footer';
-
-//import Image from 'pexels-fwstudio-131634.jpg';
 
 const mainTheme = createMuiTheme({
 	palette : {
