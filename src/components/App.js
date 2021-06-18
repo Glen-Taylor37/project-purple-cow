@@ -25,6 +25,32 @@ const mainTheme = createMuiTheme({
 	}
 });
 
+mainTheme.typography.h4 = {
+	fontSize                           : '1.2rem',
+	'@media (min-width:600px)'         : {
+		fontSize : '1.5rem'
+	},
+	[mainTheme.breakpoints.down('xs')]: {
+		fontSize : '1rem'
+	},
+	[mainTheme.breakpoints.up('md')]: {
+		fontSize : '2.4rem'
+	}
+};
+
+mainTheme.typography.h5 = {
+	fontSize                           : '1.1rem',
+	'@media (min-width:600px)'         : {
+		fontSize : '1.3rem'
+	},
+	[mainTheme.breakpoints.down('xs')]: {
+		fontSize : '.8rem'
+	},
+	[mainTheme.breakpoints.up('md')]: {
+		fontSize : '2rem'
+	}
+};
+
 const useStyles = makeStyles(() => ({
 	body : {
 		width  : '100%',

@@ -1,9 +1,37 @@
 import React from 'react';
-import { Grid, Box, Paper, Typography } from '@material-ui/core';
+import { Grid, Box, Paper, Typography, Button } from '@material-ui/core';
 
 import CountButton from './CountButton';
+//import Image from '../../public/pexels-fwstudio-131634.jpg';
+import { getCount, incrementCount } from '../apis/countApi';
 
 const Content = () => {
+	const [ count, setCount ] = React.useState(0);
+	//const [ buttonClicked, setButtonClicked ] = React.useState(false);
+
+	// React.useEffect(() => {
+	// 	async function fetchCount() {
+	// 		const count = await getCount();
+	// 		setCount(count);
+	// 	}
+	// 	fetchCount();
+	// }, [buttonClicked]);
+
+	React.useEffect(() => {
+		async function fetchCount() {
+			const value = await getCount();
+			setCount(value);
+		}
+
+		fetchCount();
+	}, []);
+
+	async function handleOnClick() {
+		await incrementCount();
+		const value = await getCount();
+		setCount(value);
+	}
+
 	return (
 		<Box flex={1}>
 			<Grid
@@ -21,7 +49,16 @@ const Content = () => {
 					</Typography>
 				</Grid>
 				<Grid item xs={3}>
-					<CountButton />
+					<Box bgcolor="primary.main">{`${count}`}</Box>
+				</Grid>
+				<Grid item xs={3}>
+					<Button
+						onClick={() => handleOnClick()}
+						variant="contained"
+						color="primary"
+					>
+						Click Me
+					</Button>
 				</Grid>
 			</Grid>
 		</Box>
