@@ -23,6 +23,10 @@ const useStyles = makeStyles({
 	}
 });
 
+const formatNumberWithCommas = (num) => {
+	return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
+
 const ButtonCard = () => {
 	const classes = useStyles();
 	const [ count, setCount ] = React.useState(0);
@@ -65,7 +69,7 @@ const ButtonCard = () => {
 							color="secondary.main"
 							variant="h4"
 						>
-							{`${count}`}
+							{formatNumberWithCommas(count)}
 						</Typography>
 						<Typography
 							className={classes.text}
