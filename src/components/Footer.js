@@ -11,17 +11,26 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import Facebook from '@material-ui/icons/Facebook';
 
-// const Copyright = () => {
-// 	return (
-// 		<Typography variant="body2" align="center">
-// 			{'Copyright © Cow'}
-// 			{new Date().getFullYear()}
-// 			{'.'}
-// 		</Typography>
-// 	);
-// };
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+	icon       : {
+		color     : '#fff',
+		position  : 'relative',
+		'&:hover' : {
+			color : '#5c3977'
+		}
+	},
+	iconButton : {
+		'&:hover' : {
+			backgroundColor : 'inherit'
+		}
+	}
+}));
 
 const Footer = () => {
+	const classes = useStyles();
+
 	return (
 		<Box
 			display="flex"
@@ -29,34 +38,56 @@ const Footer = () => {
 			maxWidth="sm"
 			justifyContent="flex-end"
 		>
-			<IconButton
-				variant="link"
-				href="https://twitter.com/fearlessbmore"
-				target="_blank"
-			>
-				<TwitterIcon color="secondary" fontSize="large" />
-			</IconButton>
-			<IconButton
-				variant="link"
-				href="https://www.facebook.com/fearlessbmore"
-				target="_blank"
-			>
-				<FacebookIcon color="secondary" fontSize="large" />
-			</IconButton>
-			<IconButton
-				variant="link"
-				href="https://www.instagram.com/fearlessbmore/"
-				target="_blank"
-			>
-				<InstagramIcon color="secondary" fontSize="large" />
-			</IconButton>
-			<IconButton
-				variant="link"
-				href="https://www.linkedin.com/company/fearlessbmore/"
-				target="_blank"
-			>
-				<LinkedInIcon color="secondary" fontSize="large" />
-			</IconButton>
+			<Box display="flex" bgcolor="secondary.main" maxWidth="sm">
+				<IconButton
+					variant="link"
+					href="https://twitter.com/fearlessbmore"
+					target="_blank"
+					className={classes.iconButton}
+				>
+					<TwitterIcon
+						color="secondary"
+						fontSize="large"
+						className={classes.icon}
+					/>
+				</IconButton>
+				<IconButton
+					variant="link"
+					href="https://www.facebook.com/fearlessbmore"
+					target="_blank"
+					className={classes.iconButton}
+				>
+					<FacebookIcon
+						color="secondary"
+						fontSize="large"
+						className={classes.icon}
+					/>
+				</IconButton>
+				<IconButton
+					variant="link"
+					href="https://www.instagram.com/fearlessbmore/"
+					target="_blank"
+					className={classes.iconButton}
+				>
+					<InstagramIcon
+						color="secondary"
+						fontSize="large"
+						className={classes.icon}
+					/>
+				</IconButton>
+				<IconButton
+					variant="link"
+					href="https://www.linkedin.com/company/fearlessbmore/"
+					target="_blank"
+					className={classes.iconButton}
+				>
+					<LinkedInIcon
+						color="action"
+						fontSize="large"
+						className={classes.icon}
+					/>
+				</IconButton>
+			</Box>
 		</Box>
 	);
 };
